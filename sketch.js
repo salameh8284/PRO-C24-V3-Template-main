@@ -27,12 +27,13 @@ function setup() {
     isStatic: true
   };
 
+  //First Object ==>> Player Base to be added
   playerBase = Bodies.rectangle(200, 350, 180, 150, options);
   World.add(world, playerBase);
-
+  // second object ===>>> Player to be added
   player = Bodies.rectangle(250, playerBase.position.y - 160, 50, 180, options);
   World.add(world,player)
-
+// now we create player Archer
   playerArcher = new PlayerArcher(
     340,
     playerBase.position.y - 112,
@@ -93,17 +94,18 @@ function draw() {
 //   }
 // }
 
-// function keyPressed() {
-//   if (keyCode === 23) {
-//     var posX = playerArcher.body.position.x;
-//     var posY = playerArcher.body.position.y;
-//     var angle = playerArcher.body.angle;
-//     var arrow = new PlayerArrow(posX, posY, 100, 10, angle);
+function keyPressed() {
+  console.log(keyCode);
+   if (keyCode === 32) {
+     var posX = playerArcher.body.position.x;
+     var posY = playerArcher.body.position.y;
+     var angle = playerArcher.body.angle;
+     var arrow = new PlayerArrow(posX, posY, 100, 10, angle);
 
-//     Matter.Body.setAngle(arrow.body, angle);
-//     playerArrows.push(arrow);
-//   }
-// }
+     Matter.Body.setAngle(arrow.body, angle);
+     playerArrows.push(arrow);
+   }
+ }
 
 // function keyPressed() {
 //   if (keyCode === 32) {
